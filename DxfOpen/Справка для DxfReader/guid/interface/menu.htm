@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Главное меню</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta content="ru" http-equiv="Content-Language" />
+	<link href="../../style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+	<h1><a name="main"></a>Главное меню</h1>
+	<h4>Меню Файл</h4>
+	<table>
+		<tr>
+			<th>Команда</th><th>Горячие&nbsp;клавиши</th><th>Описание</th>
+		</tr>
+		<tr><td>Открыть… </td><td>&lt;Ctrl+O&gt;</td><td>Запускается диалог открытия файла, и если файл выбран, программа открывает его</td></tr>
+		<tr><td>Сохранить</td><td>&lt;Ctrl+S&gt;</td><td>Сохраняет файл, доступна если документ был изменен</td></tr>
+		<tr><td>Сохранить как…</td><td>&lt;Ctrl+Shift+S&gt;</td><td>Открывает диалог сохранения файла и сохраняет его под новым именем</td></tr>
+		<tr><td>Обновить</td><td>&lt;F5&gt;</td><td>Перезагружает файл</td></tr>
+		<tr><td>Печать…</td><td>&lt;Ctrl+P&gt;</td><td>Открывает диалог вывода на печать и печатает изображение</td></tr>
+		<tr><td>Выход</td><td>&lt;Alt+X&gt; или &lt;Esc&gt;</td><td>Закрывает приложение</td></tr>
+	</table>
+	<h4><a name="edit"></a>Меню Правка</h4>
+	<table>
+		<tr><th>Команда</th><th>Горячие&nbsp;клавиши</th><th>Описание</th></tr>
+		<tr><td>Преобразовать сплайны</td><td>&lt;F2&gt;</td><td>Преобразовывает сплайны в полилинии с точностью, указанной на панели инструментов <a href="toolbar.htm#edit">Правка</a>. Становится доступной, если в документе есть сплайны.</td></tr>
+		<tr><td>Изменить или удалить точки…</td><td>&lt;Ctrl+.&gt;</td><td>Открывает 
+			<a href="../dialogs/points.htm">диалог "Точки"</a>, в котором можно выбрать, что нужно сделать с точками: удалить или пометить их как разметку или незамкнутый контур. Становится доступной, если в документе есть точки.</td></tr>
+	</table>
+	<h4><a name="view"></a>Меню Вид</h4>
+	<table>
+		<tr><th>Команда</th><th>Горячие&nbsp;клавиши</th><th>Описание</th></tr>
+		<tr><td>Показать строку меню</td><td>&lt;Ctrl+M&gt;</td><td>Показывает или убирает 
+			<a href="#main">меню</a></td></tr>
+		<tr><td>Показать панель инструментов</td><td>&lt;Ctrl+B&gt;</td><td>Показывает или убирает 
+			<a href="toolbar.htm">панель инструментов</a></td></tr>
+		<tr><td>Показать текст</td><td>&lt;Ctrl+T&gt;</td><td>Показывает или убирает 
+			<a href="text.htm">текстовую область</a> просмотра содержимого файла DXF</td></tr>
+		<tr><td>Показать изображение</td><td>&lt;Ctrl+I&gt;</td><td>Показывает или убирает 
+			<a href="visual.htm">графическую область просмотра</a> содержимого файла DXF</td></tr>
+		<tr><td>Показать строку состояния</td><td>&lt;Ctrl+U&gt;</td><td>Показывает или убирает 
+			<a href="status.htm">строку состояния</a> внизу окна</td></tr>
+	</table>
+	<h4><a name="profile"></a>Меню Профиль</h4>
+	<table>
+		<tr><th>Команда</th><th>Горячие&nbsp;клавиши</th><th>Описание</th></tr>
+		<tr><td>Создать</td><td>&lt;Ctrl+N&gt;</td><td>Открывает 
+			<a href="../dialogs/profile.htm">диалог "Профили"</a> создания 
+			<a href="../profiles/custom.htm#create">нового</a> профиля</td></tr>
+		<tr><td>Удалить профиль…</td><td>&lt;Del&gt;</td><td>
+			<a href="../profiles/custom.htm#delete">Удаляет</a> текущий профиль. Становится доступной, когда выбран 
+			<a href="../profiles/custom.htm">пользовательский</a> профиль. Удалить один из внутренних профилей нельзя.</td></tr>
+		<tr><td>Просмотр постоянного профиля</td><td>&lt;F6&gt;</td><td>Открывает 
+			<a href="../dialogs/profile.htm#inner">диалог "Профили"</a>, в котором можно посмотреть настройки выбранного<a href="../profiles/inner.htm"> внутреннего</a> профиля. Становится доступной, когда выбран один из внутренних профилей.</td></tr>
+		<tr><td>Выбрать профиль</td><td></td><td>Имеет подменю со списком всех имеющихся профилей, в котором можно выбрать нужный.</td></tr>
+		<tr><td>Редактировать текущий профиль</td><td>&lt;Ctrl+R&gt;</td><td>Открывает 
+			<a href="../dialogs/profile.htm#edit">диалог "Профили"</a> с настройками текущего профиля, которые можно изменить. Команда доступна только для 
+			<a href="../profiles/custom.htm">пользовательских</a> профилей.</td></tr>
+	</table>
+	<h4><a name="help"></a>Меню Справка</h4>
+	<table>
+		<tr><th>Команда</th><th>Горячие&nbsp;клавиши</th><th>Описание</th></tr>
+		<tr><td>Содержание</td><td>&lt;F1&gt;</td><td>Открывает справку на закладке Содержание</td></tr>
+		<tr><td>О программе</td><td>&lt;Ctrl+F1&gt;</td><td>Открывает диалог 
+			<a href="../dialogs/about.htm">&quot;О программе&quot;</a></td></tr>
+	</table>
+	<h4>Контекстное меню</h4>
+	<p>Контекстное меню окна дублирует меню <a href="#view">Вид</a></p>
+</body>
+
+</html>

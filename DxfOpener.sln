@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DxfOpener", "DxfOpen\DxfOpener.csproj", "{8A00303C-DD5C-434A-8E5C-A350597C3EC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCtrlLib", "WpfCtrlLib\WpfCtrlLib.csproj", "{7CF7CB1B-6B2B-46F7-B345-C29957084687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DxfReader", "DxfReader\DxfReader.csproj", "{4BFDEAA7-373D-4E6B-8D50-AF965BF3F08A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A00303C-DD5C-434A-8E5C-A350597C3EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A00303C-DD5C-434A-8E5C-A350597C3EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A00303C-DD5C-434A-8E5C-A350597C3EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A00303C-DD5C-434A-8E5C-A350597C3EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF7CB1B-6B2B-46F7-B345-C29957084687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF7CB1B-6B2B-46F7-B345-C29957084687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF7CB1B-6B2B-46F7-B345-C29957084687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF7CB1B-6B2B-46F7-B345-C29957084687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BFDEAA7-373D-4E6B-8D50-AF965BF3F08A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFDEAA7-373D-4E6B-8D50-AF965BF3F08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFDEAA7-373D-4E6B-8D50-AF965BF3F08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFDEAA7-373D-4E6B-8D50-AF965BF3F08A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D303E0C5-4F6C-43C8-8C27-E0B847F55000}
+	EndGlobalSection
+EndGlobal

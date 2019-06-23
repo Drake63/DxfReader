@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Общая информация</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="../../style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+	<h1>Общая информация о профилях</h1>
+	<p>
+		Профиль применяется при открытии <a href="../../general/dxf.htm">файла DXF</a>. В нем указываются параметры, с которыми будет создаваться документ. 
+		Профиль, который будет применён, выбирается на <a href="../interface/toolbar.htm#profile">панели инструментов</a> или в <a href="../interface/menu.htm#profile">меню Профиль</a>.
+	</p>
+	<p>В программе есть три <a href="inner.htm">основных</a> профиля, а также возможность создавать <a href="custom.htm">пользовательские</a></p>
+	<h4><a name="options"></a>Опции, которые можно настраивать в профиле:</h4>
+	<dl>
+		<dt><b><a name="name"></a>Имя профиля</b></dt>
+		<dd>Эта опция обязательная, требуется для его идентификации, содержит название профиля.</dd>
+		<dt><b><a name="lwpolyline"></a>Создавать LWPOLYLINE</b></dt>
+		<dd>При включении этой опции будут создаваться объекты <a href="https://www.autodesk.com/techpubs/autocad/acad2000/dxf/lwpolyline_dxf_06.htm">LWPOLYLINE</a> вместо <a href="https://www.autodesk.com/techpubs/autocad/acad2000/dxf/polyline_dxf_06.htm">POLYLINE</a>. 
+		Они – являются более простыми объектами, т.к. не содержат объектов <a href="https://www.autodesk.com/techpubs/autocad/acad2000/dxf/vertex_dxf_06.htm">VERTEX</a> для обозначения своих вершин в отличии от POLYLINE, а просто перечисляют их координаты последовательно. Поэтому запись таких объектов в файле будет короче, и соответственно сам файл будет иметь меньший размер.</dd>
+		<dt><b><a name="polyline"></a>Преобразовывать полилинии</b></dt>
+		<dd>При включении этой опции будут преобразовываться полилинии, вершины которых содержат коэффициент искривлённости, в более простые объекты - 
+		<a href="https://www.autodesk.com/techpubs/autocad/acad2000/dxf/line_dxf_06.htm">LINE</a>, <a href="https://www.autodesk.com/techpubs/autocad/acad2000/dxf/arc_dxf_06.htm">ARC</a> и <a href="https://www.autodesk.com/techpubs/autocad/acad2000/dxf/polyline_dxf_06.htm">POLYLINE</a>, вершины которых не содержат коэффициента искривлённости.</dd>
+		<dt><b><a name="all"></a>Пропускать все объекты</b></dt>
+		<dd>При включении этой опции, будут отображаться все типы линии, а не только основная, разметка и незамкнутый контур. Линии отличные от перечисленных будут создаваться как основные. </dd>
+		<dt><b><a name="origin"></a>Все на начало координат</b></dt>
+		<dd>При включении этой опции все объекты будут перемещены так, чтобы нижний левый угол изображения соответствовал точке с координатами (0, 0), т.е. началу координат. Соответственно все объекты будут смещены на соответствующий вектор.</dd>
+		<dt><b><a name="ellipse"></a>Преобразовывать эллипсы</b></dt>
+		<dd>При включении этой опции, эллипсы и эллиптические дуги будут преобразовываться в полилинии. Если она будет включена, то дополнительно потребуется указать точность, с которой будет производится преобразование.</dd>
+		<dt><b><a name="r13"></a>Создать R13</b></dt>
+		<dd>При включении этой опции, документ будет сохраняться в как <a href="../../general/dxf.htm">файл DXF</a> версии R13 (AC1012), по умолчанию он сохраняется как файл версии R11 (AC1009). Это требуется если нужно редактировать файл в CAD программах, чтобы такие объекты как <a href="https://www.autodesk.com/techpubs/autocad/acad2000/dxf/spline_dxf_06.htm">SPLINE</a> или <a href="https://www.autodesk.com/techpubs/autocad/acad2000/dxf/ellipse_dxf_06.htm">ELLIPSE</a> распознавались ими корректно. При сохранении, в итоговый файл добавляются дополнительные данные, чтоб файл соответствовал версии R13.</dd>
+	</dl>
+</body>
+
+</html>

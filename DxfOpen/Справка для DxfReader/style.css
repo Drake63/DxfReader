@@ -1,0 +1,50 @@
+﻿body{
+	font: 80% Verdana, Tahoma, Arial, sans-serif;
+	margin: 0;
+	padding: 0px 0px 0px 25px;
+}
+h1, h2, h3, h4{
+	
+	font: Verdana, Tahoma, Arial, sans-serif;
+	margin-left: -25px;
+}
+img{
+	
+	border-style: none;
+}
+table{
+	border-width: 0;
+	background-color: #ddd;
+	margin: 2px;
+}
+th{
+	padding: 4pt 8pt;
+	background: #ccc;
+	vertical-align:bottom;
+	text-align:left;
+	/*font-weight:bold;*/
+	font-size:80%;
+}
+td{
+	padding:4pt 8pt;
+	background:#fff;
+}
+caption{
+	vertical-align:middle;
+}
+img.tool{
+	height: 30px;
+}
+dd{
+	font-style:italic;
+	font-size: 90%;
+}
+dt{
+	margin-top:8pt;
+}
+a{
+	text-decoration: none;
+}
+img.prof{
+	width:350px;
+}

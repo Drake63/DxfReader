@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="dialogAboutProduct" xml:space="preserve">
+    <value>About program</value>
+  </data>
+  <data name="dialogActWithPoints" xml:space="preserve">
+    <value>What to do with dots?</value>
+  </data>
+  <data name="dialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="dialogButtonCreate" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="dialogButtonModify" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="dialogButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="dialogButtonRun" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="dialogComputerName" xml:space="preserve">
+    <value>Computer name:</value>
+  </data>
+  <data name="dialogConvertPolyline" xml:space="preserve">
+    <value>Modify polylines</value>
+  </data>
+  <data name="dialogDeleteAll" xml:space="preserve">
+    <value>remove all</value>
+  </data>
+  <data name="dialogDescription" xml:space="preserve">
+    <value>The program opens and modifies DXF files.</value>
+  </data>
+  <data name="dialogEllipses" xml:space="preserve">
+    <value>Modify ellipses</value>
+  </data>
+  <data name="dialogFoundPoints" xml:space="preserve">
+    <value>The document {0} {1} {2}</value>
+  </data>
+  <data name="dialogIgnoreOtherLine" xml:space="preserve">
+    <value>Skip all objetcs</value>
+  </data>
+  <data name="dialogLWPolyline" xml:space="preserve">
+    <value>Create LWPOLYLINE</value>
+  </data>
+  <data name="dialogMarkup" xml:space="preserve">
+    <value>Marking</value>
+  </data>
+  <data name="dialogMoveToZero" xml:space="preserve">
+    <value>Move all to the origin</value>
+  </data>
+  <data name="dialogNameProfile" xml:space="preserve">
+    <value>Profile name:</value>
+  </data>
+  <data name="dialogOpenContour" xml:space="preserve">
+    <value>Not closed shape</value>
+  </data>
+  <data name="dialogPrecision" xml:space="preserve">
+    <value>Precision:</value>
+  </data>
+  <data name="dialogProduct" xml:space="preserve">
+    <value>Program:</value>
+  </data>
+  <data name="dialogProductName" xml:space="preserve">
+    <value>Dxf Reader</value>
+  </data>
+  <data name="dialogProductVersion" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="dialogProductVersionNumber" xml:space="preserve">
+    <value>2.1.0.0</value>
+  </data>
+  <data name="dialogR13" xml:space="preserve">
+    <value>Create R13</value>
+  </data>
+  <data name="dialogSaveFile" xml:space="preserve">
+    <value>Save the file for the changes to take effect</value>
+  </data>
+  <data name="dialogSelectAs" xml:space="preserve">
+    <value>mark as:</value>
+  </data>
+  <data name="dialogStringPoint" xml:space="preserve">
+    <value>point.</value>
+  </data>
+  <data name="dialogStringPoints" xml:space="preserve">
+    <value>points.</value>
+  </data>
+  <data name="dialogStringPoints2" xml:space="preserve">
+    <value>points.</value>
+  </data>
+  <data name="dialogSystemInfo" xml:space="preserve">
+    <value>About system</value>
+  </data>
+  <data name="dialogSystemName" xml:space="preserve">
+    <value>System:</value>
+  </data>
+  <data name="dialogTitleAbout" xml:space="preserve">
+    <value>About Dxf Reader v2.1 program</value>
+  </data>
+  <data name="dialogTitleModify" xml:space="preserve">
+    <value>Editing the {0} profile</value>
+  </data>
+  <data name="dialogTitleModifyPoints" xml:space="preserve">
+    <value>Changing points</value>
+  </data>
+  <data name="dialogTitleNew" xml:space="preserve">
+    <value>Creation a new profile</value>
+  </data>
+  <data name="dialogTitleView" xml:space="preserve">
+    <value>Viewing of the {0} profile</value>
+  </data>
+  <data name="dialogTooltipConvertPolyline" xml:space="preserve">
+    <value>If a polyline contains bulges, it will be broken down into simpler entities</value>
+  </data>
+  <data name="dialogTooltipEllipses" xml:space="preserve">
+    <value>If the document contains Elliptical Arc, it will be converted to a polyline</value>
+  </data>
+  <data name="dialogTooltipIgnoreOtherLine" xml:space="preserve">
+    <value>If the entities are not a primary line, a marking, or a non-closed shape, they will be added to the document</value>
+  </data>
+  <data name="dialogTooltipLWPolyline" xml:space="preserve">
+    <value>Such a polyline takes up less disk space</value>
+  </data>
+  <data name="dialogTooltipMoveToZero" xml:space="preserve">
+    <value>Move everythink to the origin</value>
+  </data>
+  <data name="dialogTooltipR13" xml:space="preserve">
+    <value>Create a document AC2012 version</value>
+  </data>
+  <data name="dialogUser" xml:space="preserve">
+    <value>User:</value>
+  </data>
+  <data name="docCreated" xml:space="preserve">
+    <value>Done. Total strings: {0}</value>
+  </data>
+  <data name="docNotCreated" xml:space="preserve">
+    <value>Document not created</value>
+  </data>
+  <data name="ErrorHeader" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="menuAbout" xml:space="preserve">
+    <value>About program</value>
+  </data>
+  <data name="menuDeleteProfile" xml:space="preserve">
+    <value>Remove the profile…</value>
+  </data>
+  <data name="menuEdit" xml:space="preserve">
+    <value>_Edit</value>
+  </data>
+  <data name="menuEditProfile" xml:space="preserve">
+    <value>Edit current profile</value>
+  </data>
+  <data name="menuExit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="menuFile" xml:space="preserve">
+    <value>_File</value>
+  </data>
+  <data name="menuHelp" xml:space="preserve">
+    <value>_Help</value>
+  </data>
+  <data name="menuOpen" xml:space="preserve">
+    <value>Open...</value>
+  </data>
+  <data name="menuPoints" xml:space="preserve">
+    <value>Edit or delete points...</value>
+  </data>
+  <data name="menuPrint" xml:space="preserve">
+    <value>Print...</value>
+  </data>
+  <data name="menuProfile" xml:space="preserve">
+    <value>_Profile</value>
+  </data>
+  <data name="menuRefresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="menuSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="menuSaveAs" xml:space="preserve">
+    <value>Save as...</value>
+  </data>
+  <data name="menuSelectProfile" xml:space="preserve">
+    <value>Select profile</value>
+  </data>
+  <data name="menuShowMenu" xml:space="preserve">
+    <value>Show menu bar</value>
+  </data>
+  <data name="menuShowStatusBar" xml:space="preserve">
+    <value>Show status bar</value>
+  </data>
+  <data name="menuShowText" xml:space="preserve">
+    <value>Show text</value>
+  </data>
+  <data name="menuShowToolBar" xml:space="preserve">
+    <value>Show tool bar</value>
+  </data>
+  <data name="menuShowVisual" xml:space="preserve">
+    <value>Show image</value>
+  </data>
+  <data name="menuSpline" xml:space="preserve">
+    <value>Modify splines</value>
+  </data>
+  <data name="menuView" xml:space="preserve">
+    <value>_View</value>
+  </data>
+  <data name="menuViewProfile" xml:space="preserve">
+    <value>View permanent profile</value>
+  </data>
+  <data name="msgCreateProfErrorTitle" xml:space="preserve">
+    <value>Creating profile error</value>
+  </data>
+  <data name="msgErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="msgNotDxf" xml:space="preserve">
+    <value>This file is not a DXF file</value>
+  </data>
+  <data name="msgNotSaveFile" xml:space="preserve">
+    <value>File {0} has not been saved. Do you want to save it before you open a new one?</value>
+  </data>
+  <data name="msgOpenFileErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="msgPathNotFind" xml:space="preserve">
+    <value>The path not found</value>
+  </data>
+  <data name="msgPrintError" xml:space="preserve">
+    <value>The document was not created.</value>
+  </data>
+  <data name="msgPrintErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="msgProfileDelete" xml:space="preserve">
+    <value>Are you sure you want to delete the profile '{0} '?</value>
+  </data>
+  <data name="msgProfileDelTitle" xml:space="preserve">
+    <value>Profile deleting</value>
+  </data>
+  <data name="msgProfNameEmpty" xml:space="preserve">
+    <value>Profile name cannot be empty</value>
+  </data>
+  <data name="msgSavaModFileTitle" xml:space="preserve">
+    <value>Saving changes</value>
+  </data>
+  <data name="msgSaveFileTitle" xml:space="preserve">
+    <value>Saving file</value>
+  </data>
+  <data name="msgSaveModifiedFile" xml:space="preserve">
+    <value>The file has been changed, save the changes?</value>
+  </data>
+  <data name="msgSaveProfErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="msgSmallPrecision" xml:space="preserve">
+    <value>The precision cannot be less 2</value>
+  </data>
+  <data name="msgWritingFileErrorTitle" xml:space="preserve">
+    <value>Error writing file {0}</value>
+  </data>
+  <data name="NoObjects" xml:space="preserve">
+    <value>No objects</value>
+  </data>
+  <data name="objectsCount" xml:space="preserve">
+    <value>Objects count:</value>
+  </data>
+  <data name="openDialogFilters" xml:space="preserve">
+    <value>DXF AutoCad files|*.dxf</value>
+  </data>
+  <data name="profileBase_1" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="profileBase_2" xml:space="preserve">
+    <value>AJAN</value>
+  </data>
+  <data name="profileBase_3" xml:space="preserve">
+    <value>AC1012</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="RT_MANIFEST" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\app.manifest;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sizeToString" xml:space="preserve">
+    <value>Width: {0} mm; Height: {1} mm</value>
+  </data>
+  <data name="timeText" xml:space="preserve">
+    <value>Time: {0} sec.</value>
+  </data>
+  <data name="titleMainWindow" xml:space="preserve">
+    <value>DXF Reader</value>
+  </data>
+  <data name="tooltipAbout" xml:space="preserve">
+    <value>Help Contents (F1)</value>
+  </data>
+  <data name="tooltipDelProfile" xml:space="preserve">
+    <value>Delete current profile (Del)</value>
+  </data>
+  <data name="tooltipEditProfile" xml:space="preserve">
+    <value>Edit current profile (Ctrl+R)</value>
+  </data>
+  <data name="tooltipExit" xml:space="preserve">
+    <value>Exit (Alt+X или Esc)</value>
+  </data>
+  <data name="tooltipNewProfile" xml:space="preserve">
+    <value>Create a new profile (Ctrl+N)</value>
+  </data>
+  <data name="tooltipOpenFile" xml:space="preserve">
+    <value>Open DXF file and view it (Ctrl+O)</value>
+  </data>
+  <data name="tooltipPoints" xml:space="preserve">
+    <value>Delete or change points (Ctrl+.)</value>
+  </data>
+  <data name="tooltipPrecisionBySpline" xml:space="preserve">
+    <value>The precision with which you want to convert splines into polylines</value>
+  </data>
+  <data name="tooltipPrint" xml:space="preserve">
+    <value>Pint the image (Ctrl+P)</value>
+  </data>
+  <data name="tooltipReloadFile" xml:space="preserve">
+    <value>Reload file (F5)</value>
+  </data>
+  <data name="tooltipSaveFile" xml:space="preserve">
+    <value>Save file (Ctrl+S)</value>
+  </data>
+  <data name="tooltipSpline" xml:space="preserve">
+    <value>Modify splines to polylines (F2)</value>
+  </data>
+  <data name="tooltipViewProfile" xml:space="preserve">
+    <value>View permanent profile (F6)</value>
+  </data>
+  <data name="menuHelpContents" xml:space="preserve">
+    <value>Help Contents</value>
+  </data>
+  <data name="helpFileName" xml:space="preserve">
+    <value>DxfReader.chm</value>
+  </data>
+  <data name="dialogFoundPointsContains_1" xml:space="preserve">
+    <value>contains</value>
+  </data>
+  <data name="dialogFoundPointsContains_2" xml:space="preserve">
+    <value>contains</value>
+  </data>
+  <data name="topicAboutDialog" xml:space="preserve">
+    <value>guid/dialogs/about.htm</value>
+  </data>
+  <data name="topicCustom" xml:space="preserve">
+    <value>guid/profiles/custom.htm</value>
+  </data>
+  <data name="topicDialogs" xml:space="preserve">
+    <value>guid/dialogs/index.htm</value>
+  </data>
+  <data name="topicDxf" xml:space="preserve">
+    <value>general/dxf.htm</value>
+  </data>
+  <data name="topicGenAbout" xml:space="preserve">
+    <value>general/about.htm</value>
+  </data>
+  <data name="topicGeneral" xml:space="preserve">
+    <value>general/index.htm</value>
+  </data>
+  <data name="topicGuid" xml:space="preserve">
+    <value>guid/index.htm</value>
+  </data>
+  <data name="topicInfo" xml:space="preserve">
+    <value>guid/profiles/info.htm</value>
+  </data>
+  <data name="topicInner" xml:space="preserve">
+    <value>guid/profiles/inner.htm</value>
+  </data>
+  <data name="topicInterface" xml:space="preserve">
+    <value>guid/interface/index.htm</value>
+  </data>
+  <data name="topicMenu" xml:space="preserve">
+    <value>guid/interface/menu.htm</value>
+  </data>
+  <data name="topicPoinsDialog" xml:space="preserve">
+    <value>guid/dialogs/points.htm</value>
+  </data>
+  <data name="topicProfDialog" xml:space="preserve">
+    <value>guid/dialogs/profile.htm</value>
+  </data>
+  <data name="topicProfiles" xml:space="preserve">
+    <value>guid/profiles/index.htm</value>
+  </data>
+  <data name="topicStart" xml:space="preserve">
+    <value>start.htm</value>
+  </data>
+  <data name="topicStatus" xml:space="preserve">
+    <value>guid/interface/status.htm</value>
+  </data>
+  <data name="topicText" xml:space="preserve">
+    <value>guid/interface/text.htm</value>
+  </data>
+  <data name="topicToolbar" xml:space="preserve">
+    <value>guid/interface/toolbar.htm</value>
+  </data>
+  <data name="topicVisual" xml:space="preserve">
+    <value>guid/interface/visual.htm</value>
+  </data>
+  <data name="mutexTimeout" xml:space="preserve">
+    <value>Timeout waiting for exclusive access</value>
+  </data>
+  <data name="menuOnlyOneWindow" xml:space="preserve">
+    <value>_Open all files in the current window</value>
+  </data>
+</root>

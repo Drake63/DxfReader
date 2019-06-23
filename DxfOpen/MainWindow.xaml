@@ -1,0 +1,251 @@
+﻿<Window x:Class="DxfOpener.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DxfOpener"
+        xmlns:custom="clr-namespace:DxfReader;assembly=dxfpasser"
+        xmlns:prop="clr-namespace:DxfOpener.Properties"
+        xmlns:lib="clr-namespace:WpfCtrlLib;assembly=WpfCtrlLib"
+        xmlns:res="clr-namespace:DxfOpener.Properties"
+        Title="{x:Static res:Resources.titleMainWindow}" Height="500" Width="750" WindowStartupLocation="CenterScreen" 
+        Icon="icon.ico" Loaded="Window_Loaded" SnapsToDevicePixels="True"
+        local:HelpProvider.HelpString="{x:Static res:Resources.topicStart}" local:HelpProvider.HelpNavigator="Topic">
+    <Window.Resources>        
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <local:LineCountToStringConverter x:Key="LinesCountToString"/>
+        <local:EntitiesCountToStringConverter x:Key="EntitiesCountToString"/>
+        <local:SizeToStringConverter x:Key="SizeToString"/>
+        <local:Document x:Key="doc"/>
+        <prop:Settings x:Key="settings"/>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" CanExecute="Command_CanExecute" Executed="Open_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Save" CanExecute="Save_CanExecute" Executed="Save_Executed"/>
+        <CommandBinding Command="ApplicationCommands.SaveAs" CanExecute="SaveAs_CanExecute" Executed="SaveAs_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Close" CanExecute="Command_CanExecute" Executed="Close_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Print" CanExecute="SaveAs_CanExecute" Executed="Print_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Delete" CanExecute="Delete_CanExecute" Executed="Delete_Executed"/>
+        <CommandBinding Command="ApplicationCommands.New" CanExecute="Command_CanExecute" Executed="NewProfile_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.ShowMenu}" CanExecute="Command_CanExecute" Executed="ShowMenu_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.ShowToolbar}" Executed="ShowToolBar_Executed" CanExecute="Command_CanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.ShowText}" CanExecute="Command_CanExecute" Executed="ShowText_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.ShowVisual}" CanExecute="Command_CanExecute" Executed="ShowVisual_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.ShowStatusBar}" CanExecute="Command_CanExecute" Executed="ShowStatusBar_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.ChandgeProfile}" CanExecute="Delete_CanExecute" Executed="ChandgeProfile_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.ChangePoint}" CanExecute="ChangePoint_CanExecute" Executed="ChangePoint_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.Refresh}" CanExecute="Refresh_CanExecute" Executed="Refresh_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SplineToPolyline}" CanExecute="SplineToPolyline_canExecute" Executed="SplineToPolyline_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.ShowBaseProfile}" CanExecute="ShowBaseProfile_CanExecute" Executed="ShowBaseProfile_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.AboutCommand}" Executed="AboutCommand_Executed"/>
+        <CommandBinding Command="{x:Static local:MainWindow.OnlyOneWindow}" Executed="OnlyOneWindow_Executed"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="ApplicationCommands.SaveAs" Gesture="Ctrl+Shift+S"/>
+        <KeyBinding Command="ApplicationCommands.Close" Gesture="Alt+X"/>
+        <KeyBinding Command="ApplicationCommands.Close" Gesture="Escape"/>
+        <KeyBinding Command="{x:Static local:MainWindow.ShowMenu}" Gesture="Ctrl+M"/>
+        <KeyBinding Command="{x:Static local:MainWindow.ShowToolbar}" Gesture="Ctrl+B"/>
+        <KeyBinding Command="{x:Static local:MainWindow.ShowText}" Gesture="Ctrl+T"/>
+        <KeyBinding Command="{x:Static local:MainWindow.ShowVisual}" Gesture="Ctrl+I"/>
+        <KeyBinding Command="{x:Static local:MainWindow.ShowStatusBar}" Gesture="Ctrl+U"/>
+        <KeyBinding Command="{x:Static local:MainWindow.ChandgeProfile}" Gesture="Ctrl+R"/>
+        <KeyBinding Command="{x:Static local:MainWindow.ChangePoint}" Gesture="Ctrl+OemPeriod"/>
+        <KeyBinding Command="{x:Static local:MainWindow.Refresh}" Key="F5"/>
+        <KeyBinding Command="{x:Static local:MainWindow.SplineToPolyline}" Key="F2"/>
+        <KeyBinding Command="{x:Static local:MainWindow.ShowBaseProfile}" Key="F6"/>
+        <KeyBinding Command="{x:Static local:MainWindow.AboutCommand}" Gesture="Ctrl+F1"/>
+        <KeyBinding Command="{x:Static local:MainWindow.OnlyOneWindow}" Gesture="F11"/>
+    </Window.InputBindings>
+    <Grid DataContext="{StaticResource doc}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.ColumnSpan="3">
+            <Menu x:Name="MainMenu" DockPanel.Dock="Top" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=menuShowMenu}" local:HelpProvider.HelpNavigator="Topic" local:HelpProvider.HelpString="{x:Static res:Resources.topicMenu}">
+                <MenuItem x:Name="MenuFile" Header="{x:Static res:Resources.menuFile}">
+                    <MenuItem Command="ApplicationCommands.Open" Header="{x:Static res:Resources.menuOpen}">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Open.gif"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="ApplicationCommands.Save" Header="{x:Static res:Resources.menuSave}">
+                        <MenuItem.Icon>
+                            <Image x:Name="saveImage" Source="Images/Save.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="ApplicationCommands.SaveAs" Header="{x:Static res:Resources.menuSaveAs}" InputGestureText="Ctrl+Shift+S"/>
+                    <Separator/>
+                    <MenuItem Command="{x:Static local:MainWindow.Refresh}" Header="{x:Static res:Resources.menuRefresh}" InputGestureText="F5">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Refresh.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem x:Name="menuPrint" Command="ApplicationCommands.Print" Header="{x:Static res:Resources.menuPrint}">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Print.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="ApplicationCommands.Close" Header="{x:Static res:Resources.menuExit}" InputGestureText="Alt+X или Esc">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Exit.gif"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static res:Resources.menuEdit}">
+                    <MenuItem x:Name="menuSpline" Command="{x:Static local:MainWindow.SplineToPolyline}" Header="{x:Static res:Resources.menuSpline}" InputGestureText="F2">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Spline.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="{x:Static local:MainWindow.ChangePoint}" Header="{x:Static res:Resources.menuPoints}" InputGestureText="Ctrl+.">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Point.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem x:Name="menuItem" Header="{x:Static res:Resources.menuView}">
+                    <MenuItem x:Name="menuOnlyOneWindow" Command="{x:Static local:MainWindow.OnlyOneWindow}" Header="{x:Static res:Resources.menuOnlyOneWindow}" IsChecked="{Binding onlyOneWindow, Source={StaticResource settings}}" InputGestureText="F11"/>
+                    <Separator/>
+                    <MenuItem x:Name="menuShowMenu" Command="{x:Static local:MainWindow.ShowMenu}" Header="{x:Static res:Resources.menuShowMenu}" IsChecked="{Binding showMenu, Source={StaticResource settings}}" InputGestureText="Ctrl+M"/>
+                    <MenuItem x:Name="menuShowToolBar" Command="{x:Static local:MainWindow.ShowToolbar}" IsChecked="{Binding showToolBar, Source={StaticResource settings}}" Header="{x:Static res:Resources.menuShowToolBar}" InputGestureText="Ctrl+B"/>
+                    <MenuItem x:Name="menuShowText" Command="{x:Static local:MainWindow.ShowText}" IsChecked="{Binding showText, Source={StaticResource settings}}" Header="{x:Static res:Resources.menuShowText}" InputGestureText="Ctrl+T"/>
+                    <MenuItem x:Name="menuShowVisual" Header="{x:Static res:Resources.menuShowVisual}" IsChecked="{Binding showVisual, Source={StaticResource settings}}" InputGestureText="Ctrl+I" Command="{x:Static local:MainWindow.ShowVisual}"/>
+                    <MenuItem x:Name="menuShowStatusBar" Header="{x:Static res:Resources.menuShowStatusBar}" IsChecked="{Binding showStatusBar, Source={StaticResource settings}}" InputGestureText="Ctrl+U" Command="{x:Static local:MainWindow.ShowStatusBar}"/>
+                </MenuItem>
+                <MenuItem Header="{x:Static res:Resources.menuProfile}">
+                    <MenuItem x:Name="menuNewProfile" Command="ApplicationCommands.New">
+                        <MenuItem.Icon>
+                            <Image Source="Images/New.gif"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="menuDeleteProfile" Header="{x:Static res:Resources.menuDeleteProfile}" Command="ApplicationCommands.Delete">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Cancel.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static res:Resources.menuViewProfile}" Command="{x:Static local:MainWindow.ShowBaseProfile}" InputGestureText="F6">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Newprof.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem Header="{x:Static res:Resources.menuSelectProfile}" x:Name="menuSelectProfile"/>
+                    <Separator/>
+                    <MenuItem Command="{x:Static local:MainWindow.ChandgeProfile}" Header="{x:Static res:Resources.menuEditProfile}" InputGestureText="Ctrl+R">
+                        <MenuItem.Icon>
+                            <Image Source="Images/Edit.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static res:Resources.menuHelp}">
+                    <MenuItem Header="{x:Static res:Resources.menuHelpContents}" InputGestureText="F1" Command="ApplicationCommands.Help" local:HelpProvider.HelpNavigator="Topic" local:HelpProvider.HelpString="{x:Static res:Resources.topicStart}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Source="Images/Help.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem Header="{x:Static res:Resources.menuAbout}" Command="{x:Static local:MainWindow.AboutCommand}" InputGestureText="Ctrl+F1">
+                        <MenuItem.Icon>
+                            <Image Width="16" Source="info.ico"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <ToolBarTray x:Name="toolBar" IsLocked="False" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=menuShowToolBar}" local:HelpProvider.HelpString="{x:Static res:Resources.topicToolbar}" local:HelpProvider.HelpNavigator="Topic">
+                <ToolBar x:Name="tbFile" Height="30" AllowDrop="True">
+                    <Button Command="{x:Static local:MainWindow.Refresh}" ToolTip="{x:Static res:Resources.tooltipReloadFile}" ToolTipService.ShowOnDisabled="True">
+                        <Image Source="Images/Refresh.gif" Stretch="None" IsEnabledChanged="Image_IsEnabledChanged"/>
+                    </Button>
+                    <Separator/>
+                    <Button Command="ApplicationCommands.Open" ToolTip="{x:Static res:Resources.tooltipOpenFile}" ToolTipService.ShowOnDisabled="True">
+                        <Image Source="Images/Open.gif"/>
+                    </Button>
+                    <Button x:Name="btnSave" Command="ApplicationCommands.Save" ToolTip="{x:Static res:Resources.tooltipSaveFile}" ToolTipService.ShowOnDisabled="True">
+                        <Image x:Name="btnSaveImage" Source="Images/Save.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                    </Button>
+                    <Separator/>
+                    <Button Command="ApplicationCommands.Print" ToolTip="{x:Static res:Resources.tooltipPrint}" ToolTipService.ShowOnDisabled="True">
+                        <Image Source="Images/Print.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                    </Button>
+                </ToolBar>
+                <ToolBar x:Name="tbEdit" Height="30" AllowDrop="True">
+                    <Button x:Name="btnSpline" Command="{x:Static local:MainWindow.SplineToPolyline}" ToolTip="{x:Static res:Resources.tooltipSpline}" ToolTipService.ShowOnDisabled="True">
+                        <Image Source="Images/Spline.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                    </Button>
+                    <Separator/>
+                    <lib:NumericUpDown x:Name="precisiontSpline" MinValue="0" MaxValue="5000" Value="100" Height="21" IsEnabled="{Binding ElementName=btnSpline, Path=IsEnabled}" ToolTip="{x:Static res:Resources.tooltipPrecisionBySpline}" ToolTipService.ShowOnDisabled="True" BorderThickness="1"/>
+                    <Separator/>
+                    <Button Command="{x:Static local:MainWindow.ChangePoint}" ToolTip="{x:Static res:Resources.tooltipPoints}" ToolTipService.ShowOnDisabled="True">
+                        <Image Source="Images/Point.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                    </Button>                    
+                </ToolBar>
+                <ToolBar x:Name="tbProfiles" Height="30" AllowDrop="True">
+                    <Button Command="{x:Static local:MainWindow.ShowBaseProfile}" ToolTip="{x:Static res:Resources.tooltipViewProfile}" ToolTipService.ShowOnDisabled="True">
+                        <Image Source="Images/NewProf.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                    </Button>
+                    <Button Command="ApplicationCommands.New" ToolTip="{x:Static res:Resources.tooltipNewProfile}">
+                        <Image Source="Images/New.gif"/>
+                    </Button>
+                    <Separator/>
+                    <ComboBox x:Name="profList" Width="100" SelectionChanged="profList_SelectionChanged"/>
+                    <Separator/>
+                    <Button Command="{x:Static local:MainWindow.ChandgeProfile}" ToolTip="{x:Static res:Resources.tooltipEditProfile}" ToolTipService.ShowOnDisabled="True">
+                        <Image Source="Images/Edit.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                    </Button>
+                    <Button Command="ApplicationCommands.Delete" ToolTip="{x:Static res:Resources.tooltipDelProfile}" ToolTipService.ShowOnDisabled="True">
+                        <Image Source="Images/Cancel.gif" IsEnabledChanged="Image_IsEnabledChanged"/>
+                    </Button>
+                </ToolBar>
+                <ToolBar x:Name="tbHelp" Height="30" AllowDrop="True">
+                    <Button Command="{x:Static ApplicationCommands.Help}" ToolTip="{x:Static res:Resources.tooltipAbout}" local:HelpProvider.HelpNavigator="Topic" local:HelpProvider.HelpString="start.htm">
+                        <Image Source="Images/Help.png"/>
+                    </Button>
+                    <Separator/>
+                    <Button Command="ApplicationCommands.Close" ToolTip="{x:Static res:Resources.tooltipExit}" ToolTipService.ShowOnDisabled="True">
+                        <Image Source="Images/Exit.gif"/>
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>
+        </DockPanel>
+        <TextBox x:Name="textBox" Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Width="160" 
+                 Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=menuShowText}" 
+                 Text="{Binding Path=Data}" TextInput="textBox_TextInput" local:HelpProvider.HelpNavigator="Topic" local:HelpProvider.HelpString="{x:Static res:Resources.topicText}"/>
+        <GridSplitter Grid.Row="1" Grid.Column="1" Width="3" ResizeBehavior="PreviousAndNext"/>
+        <Viewbox x:Name="viewBox" Grid.Row="1" Grid.Column="2">
+            <custom:DocumentFrameworkElement x:Name="docVisual" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                                 Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=menuShowVisual}">
+                <custom:DocumentFrameworkElement.LayoutTransform>
+                    <ScaleTransform ScaleY="-1"/>
+                </custom:DocumentFrameworkElement.LayoutTransform>
+            </custom:DocumentFrameworkElement>
+        </Viewbox>
+        <StatusBar Grid.Row="3" Grid.ColumnSpan="3" x:Name="statusBar" Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=menuShowStatusBar}">
+            <TextBlock x:Name="textState" Text="{Binding LineCount, Converter={StaticResource LinesCountToString}}">
+            </TextBlock>
+            <Separator/>
+            <TextBlock x:Name="textObjCount" Text="{Binding EntitiesCount, Converter={StaticResource EntitiesCountToString}}"/>
+            <Separator/>
+            <TextBlock x:Name="textObjSize" Text="{Binding Size, Converter={StaticResource SizeToString}}"/>
+            <Separator/>
+            <TextBlock x:Name="textTime"/>
+        </StatusBar>
+        
+    </Grid>
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="contextMenuShowMenu" Header="{x:Static res:Resources.menuShowMenu}" IsChecked="{Binding showMenu, Source={StaticResource settings}}" InputGestureText="Ctrl+M" Click="contextMenuShowMenu_Click"/>
+            <MenuItem x:Name="contextMenuShowToolBar"  IsChecked="{Binding showToolBar, Source={StaticResource settings}}" Header="{x:Static res:Resources.menuShowToolBar}" InputGestureText="Ctrl+B" Click="contextShowToolBar_Click"/>
+            <MenuItem x:Name="contextMenuShowText" IsChecked="{Binding showText, Source={StaticResource settings}}" Header="{x:Static res:Resources.menuShowText}" InputGestureText="Ctrl+T" Click="contextMenuShowText_Click"/>
+            <MenuItem x:Name="contextMenuShowVisual"  Header="{x:Static res:Resources.menuShowVisual}" IsChecked="{Binding showVisual, Source={StaticResource settings}}" InputGestureText="Ctrl+I" Click="contextMenuShowVisual_Click"/>
+            <MenuItem x:Name="contextMenuShowStatusBar"  Header="{x:Static res:Resources.menuShowStatusBar}" IsChecked="{Binding showStatusBar, Source={StaticResource settings}}" InputGestureText="Ctrl+U" Click="contextMenuShowStatusBar_Click"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+</Window>
